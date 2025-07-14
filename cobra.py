@@ -1,0 +1,1 @@
+map_dimensions = (10,20)
