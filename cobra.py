@@ -6,7 +6,7 @@ class Game:
         self.map_height = 10
         self.game_map = [["~" for x in range(self.map_width)] for y in range(self.map_height)] 
 
-    def ShowMap(map):
+    def ShowMap(self, map):
         print()
         print()
         print()
@@ -15,8 +15,9 @@ class Game:
             for column in line:
                 line_drawing += column
             print(line_drawing)
-            
+
 game = Game()
-print(game.game_map)
-map = game.game_map
-game.ShowMap(map)
+new_map = game.game_map
+print(new_map)
+
+game.ShowMap(new_map)
