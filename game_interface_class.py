@@ -1,18 +1,15 @@
-from map_class import Map
 
 class GameInterface:
 
-    def ShowMap(self):
+    def show_map(self, grid):
         print()
         print()
         print()
-        game_map = Map()
-
-        for line in game_map.grid:
+        for line in grid:
             line_drawing = ""
             for block in line:
                 line_drawing += block
             print(line_drawing)
 
-ifc = GameInterface()
-ifc.ShowMap()
+# ifc = GameInterface()
+# ifc.show_map()
