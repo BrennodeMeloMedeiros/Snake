@@ -22,14 +22,13 @@ class Map:
                 if block == self.empty_block_char:
                     current_index = [row_index, column_index]
                     list_empty_blocks.append(current_index)
-
             row_index += 1
         return list_empty_blocks
 
     def spawn_fruit(self):
         # Choose one empty block to became a fruit
         fruit_block = random.choice(self.get_empty_blocks())
-        fruit_block_x = fruit_block[0]
+        fruit_block_x = fruit_block[0] 
         fruit_block_y = fruit_block[1]
         self.grid[fruit_block_x][fruit_block_y] = self.fruit_block_char
         print(f"Fruit spawned at {fruit_block}")
