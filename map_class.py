@@ -25,6 +25,9 @@ class Map:
             row_index += 1
         return list_empty_blocks
 
+    def get_map_dimentions(self):
+        return [self.map_width, self.map_height]
+
     def spawn_fruit(self):
         # Choose one empty block to became a fruit
         fruit_block = random.choice(self.get_empty_blocks())
@@ -32,7 +35,15 @@ class Map:
         fruit_block_y = fruit_block[1]
         self.grid[fruit_block_x][fruit_block_y] = self.fruit_block_char
         print(f"Fruit spawned at {fruit_block}")
-
+    
+    def drawm_snake(self, snake_position, snake_head_char, snake_body_char):
+        for snake_body_part_position in snake_position:
+            body_part_char = snake_head_char if snake_body_part_position == snake_position[0] else snake_body_char
+            print(f"Body part drawn:{body_part_char}")
+            print(f"Body part position:{snake_body_part_position}")
+            body_part_position_x = snake_body_part_position[0]
+            body_part_position_y = snake_body_part_position[1]
+            self.grid[body_part_position_x][body_part_position_y] = body_part_char
 
 # game_map = Map()
 # print(game_map.spawn_fruit())
