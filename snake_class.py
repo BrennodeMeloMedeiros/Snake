@@ -30,7 +30,11 @@ class Snake:
                         body_part_position[0] -= 1
                     case _:
                         print("Input key incorrect")
-                new_snake_position = body_part_position
-            
+            # move body 
+            else:
+                body_part_position = old_body_part_position
+
             old_body_part_position = body_part_position
+            new_snake_position.append(body_part_position)
+
         self.snake_position = new_snake_position
