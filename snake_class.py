@@ -19,13 +19,13 @@ class Snake:
             if body_part_position == self.snake_position[0]:
                 match direction.lower():
                     case "up":
-                        body_part_position[1] += 1
-                    case "down":
-                        body_part_position[1] -= 1
-                    case "right":
                         body_part_position[0] += 1
-                    case "left":
+                    case "down":
                         body_part_position[0] -= 1
+                    case "right":
+                        body_part_position[1] += 1
+                    case "left":
+                        body_part_position[1] -= 1
                     case _:
                         print("Input key incorrect")
             # move body 

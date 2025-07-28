@@ -17,13 +17,15 @@ class Main:
         snake_position = self.snake.get_snake_position(self.map.get_map_dimentions())
         
         if self.fruit.was_eaten():
-            fruit_block = random.choice(empty_blocks)
-            self.map.drawm_entity("fruit", fruit_block)
-            self.fruit.update_position(fruit_block)
-            print(f"Fruit spawned at {fruit_block}")
+            fruit_position = random.choice(empty_blocks)
+            self.map.drawm_entity("fruit", fruit_position)
+            self.fruit.update_position(fruit_position)
+            print(f"Fruit spawned at {fruit_position}")
 
         self.map.drawm_entity("snake", snake_position)
-        
+
+        self.map.clear_map([snake_position, fruit_position])
+
         self.interface.show_map(self.map.grid)
         player_input = input("Up/Down/Right/Left")
         self.snake.move_snake(player_input)

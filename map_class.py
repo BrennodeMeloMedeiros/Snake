@@ -1,4 +1,4 @@
-import random
+from game_interface_class import GameInterface
 class Map:
 
     def __init__(self):
@@ -6,6 +6,7 @@ class Map:
         self.map_height = 10
 
         self.empty_block_char = "~"
+
         self.fruit_block_char = "@"
         self.snake_head_char = "0"
         self.snake_body_char = "°"
@@ -13,9 +14,9 @@ class Map:
         self.grid = [[self.empty_block_char for x in range(self.map_width)] for y in range(self.map_height)]
 
     def test(self):
-        test_x = 1
-        test_y = 5
-        self.grid[test_x][test_y] = "T"
+        test_y = 1
+        test_x = 9
+        self.grid[test_y][test_x] = "T"
 
     def get_empty_blocks(self):
         row_index = 0
@@ -44,21 +45,25 @@ class Map:
             case "fruit":
                 postion_x = entity_position[0] 
                 position_y = entity_position[1]
-                self.grid[postion_x][position_y] = self.fruit_block_char
+                self.grid[position_y][postion_x] = self.fruit_block_char
             case _:
                 print(f"ERROR: entity '{entity_type}' is unkown.")
                 exit
 
-    def drawm_snake(self, snake_position, snake_head_char, snake_body_char):
-        for snake_body_part_position in snake_position:
-            body_part_char = snake_head_char if snake_body_part_position == snake_position[0] else snake_body_char
-            print(f"Body part drawn:{body_part_char}")
-            print(f"Body part position:{snake_body_part_position}")
-            body_part_position_x = snake_body_part_position[0]
-            body_part_position_y = snake_body_part_position[1]
-            self.grid[body_part_position_x][body_part_position_y] = body_part_char
+    def clear_map(self, snake_position, fruit_position):
+        positions_in_use = []
+        for p in snake_position:
+            positions_in_use.append(p)
+        positions_in_use.append(fruit_position)
 
-from game_interface_class import GameInterface
-i = GameInterface
+        for coordenate in self.grid:
+            if not coordenate in positions_in_use:
+                position_y = coordenate[0]
+                position_x = coordenate[1]
+                self.grid[position_y][position_x] = self.empty_block_char
+
+i = GameInterface()
 game_map = Map()
-i.show_map(game_map.grid)
+game_map.test()
+a = game_map.grid
+i.show_map(a)
