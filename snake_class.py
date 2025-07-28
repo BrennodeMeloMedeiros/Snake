@@ -4,8 +4,8 @@ class Snake:
         self.snake_position = []
 
     def get_snake_position(self, map_dimentions):
-        map_width = map_dimentions[0]
-        map_height = map_dimentions[1]
+        map_height = map_dimentions[0] - 1
+        map_width = map_dimentions[1] - 1
         if len(self.snake_position) == 0:
             # generate random initial position
             self.snake_position = [[random.randrange(0, map_height), random.randrange(0, map_width)]]

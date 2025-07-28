@@ -32,7 +32,7 @@ class Map:
         return list_empty_blocks
 
     def get_map_dimentions(self):
-        return [self.map_width, self.map_height]
+        return [self.map_height, self.map_width]
 
     def drawm_entity(self, entity_type, entity_position):
         match entity_type:
@@ -43,9 +43,9 @@ class Map:
                     body_part_position_y = snake_body_part_position[1]
                     self.grid[body_part_position_x][body_part_position_y] = body_part_char
             case "fruit":
-                postion_x = entity_position[0] 
-                position_y = entity_position[1]
-                self.grid[position_y][postion_x] = self.fruit_block_char
+                position_y = entity_position[0] 
+                position_x = entity_position[1]
+                self.grid[position_y][position_x] = self.fruit_block_char
             case _:
                 print(f"ERROR: entity '{entity_type}' is unkown.")
                 exit
@@ -54,16 +54,19 @@ class Map:
         positions_in_use = []
         for p in snake_position:
             positions_in_use.append(p)
+            print(f"snake coordenates: {p}")
         positions_in_use.append(fruit_position)
+        row_index = 0
+        column_index = 0
+        for row in self.grid:
+            for column in row:
+                current_coordenates = [row, column]
+                if current_coordenates in positions_in_use:
+                    self.grid[row][column] = self.empty_block_char
+        
 
-        for coordenate in self.grid:
-            if not coordenate in positions_in_use:
-                position_y = coordenate[0]
-                position_x = coordenate[1]
-                self.grid[position_y][position_x] = self.empty_block_char
-
-i = GameInterface()
-game_map = Map()
-game_map.test()
-a = game_map.grid
-i.show_map(a)
+# i = GameInterface()
+# game_map = Map() 
+# game_map.test()
+# a = game_map.grid
+# i.show_map(a)

@@ -15,6 +15,7 @@ class Main:
         
         empty_blocks = self.map.get_empty_blocks()
         snake_position = self.snake.get_snake_position(self.map.get_map_dimentions())
+        fruit_position = self.fruit
         
         if self.fruit.was_eaten():
             fruit_position = random.choice(empty_blocks)
@@ -24,7 +25,7 @@ class Main:
 
         self.map.drawm_entity("snake", snake_position)
 
-        self.map.clear_map([snake_position, fruit_position])
+        self.map.clear_map(snake_position, fruit_position)
 
         self.interface.show_map(self.map.grid)
         player_input = input("Up/Down/Right/Left")
