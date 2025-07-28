@@ -10,14 +10,17 @@ class Snake:
             # generate random initial position
             self.snake_position = [[random.randrange(0, map_height), random.randrange(0, map_width)]]
         
-        return self.snake_position 
+        return self.snake_position if len(self.snake_position) > 0 else False
+
+    def update_position(self, new_position):
+        self.snake_position = new_position
 
     def move_snake(self, direction):
         new_snake_position = []
         for body_part_position in self.snake_position:
             # move head
             if body_part_position == self.snake_position[0]:
-                match direction.lower():
+                match direction:
                     case "up":
                         body_part_position[0] += 1
                     case "down":

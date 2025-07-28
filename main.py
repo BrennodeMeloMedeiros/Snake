@@ -12,23 +12,26 @@ class Main:
     
     def loop(self):
         print("Loop iniciated")
-        
-        empty_blocks = self.map.get_empty_blocks()
-        snake_position = self.snake.get_snake_position(self.map.get_map_dimentions())
-        fruit_position = self.fruit
-        
+
+
         if self.fruit.was_eaten():
-            fruit_position = random.choice(empty_blocks)
-            self.map.drawm_entity("fruit", fruit_position)
-            self.fruit.update_position(fruit_position)
-            print(f"Fruit spawned at {fruit_position}")
+            empty_blocks = self.map.get_empty_blocks()
+            fruit_new_position = random.choice(empty_blocks)
+            self.map.drawm_entity("fruit", fruit_new_position)
+            self.fruit.update_position(fruit_new_position)
+            print(f"Fruit spawned at {fruit_new_position}")
 
-        self.map.drawm_entity("snake", snake_position)
+        if not self.snake.get_snake_position():
+            empty_blocks = self.map.get_empty_blocks()
+            snake_new_position = random.choice(empty_blocks)
+            self.snake.update_position(snake_new_position)
+            self.map.drawm_entity("snake", snake_new_position, empty_blocks)
 
-        self.map.clear_map(snake_position, fruit_position)
+        self.map.clear_map(snake_new_position, fruit_new_position)
 
         self.interface.show_map(self.map.grid)
-        player_input = input("Up/Down/Right/Left")
+
+        
         self.snake.move_snake(player_input)
 
 main = Main()
