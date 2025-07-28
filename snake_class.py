@@ -1,8 +1,6 @@
 import random
 class Snake:
     def __init__(self):
-        self.snake_head_char = "0"
-        self.snake_body_char = "°"
         self.snake_position = []
 
     def get_snake_position(self, map_dimentions):

@@ -3,11 +3,20 @@ class Fruit():
     def __init__(self):
         self.fruit_position = []
 
-        def get_fruit_position(self):
-            if not self.fruit_position:
-            # Choose one empty block to became a fruit
-            fruit_block = random.choice(self.get_empty_blocks())
-            fruit_block_x = fruit_block[0] 
-            fruit_block_y = fruit_block[1]
-            self.grid[fruit_block_x][fruit_block_y] = self.fruit_block_char
-            print(f"Fruit spawned at {fruit_block}")
+    def get_current_fruit_position(self):
+        return self.fruit_position
+
+    def get_new_fruit_position(self, map_empty_positions):
+        if self.fruit_position:
+            pass
+        # Choose one empty block to became a fruit
+
+    def update_position(self, new_position):
+        self.fruit_position = new_position
+
+    def was_eaten(self):
+        return False if self.fruit_position else True
+    
+    def has_been_eaten(self):
+        self.fruit_position = []
+        pass
