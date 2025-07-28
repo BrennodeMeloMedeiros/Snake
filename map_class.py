@@ -28,13 +28,6 @@ class Map:
     def get_map_dimentions(self):
         return [self.map_width, self.map_height]
 
-    def spawn_fruit(self):
-        # Choose one empty block to became a fruit
-        fruit_block = random.choice(self.get_empty_blocks())
-        fruit_block_x = fruit_block[0] 
-        fruit_block_y = fruit_block[1]
-        self.grid[fruit_block_x][fruit_block_y] = self.fruit_block_char
-        print(f"Fruit spawned at {fruit_block}")
     
     def drawm_snake(self, snake_position, snake_head_char, snake_body_char):
         for snake_body_part_position in snake_position:
