@@ -1,4 +1,4 @@
-
+import sys
 class GameInterface:
 
     def show_map(self, grid):
@@ -22,11 +22,11 @@ class GameInterface:
             match_score = len(set(d).intersection(set(player_input)))
             if match_score > 1:
                 direction_choosen = d
-                print(f"Direction choosen: {direction_choosen}")
-            return direction_choosen
-
+                print(f"Direction choosen: {direction_choosen} with {match_score} points")
+                return direction_choosen
         if direction_choosen == "":
             print("wtf did you type? That's not a direction.")
+            sys.exit
 
 ifc = GameInterface()
 ifc.get_player_input()
