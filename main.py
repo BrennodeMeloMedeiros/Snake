@@ -31,14 +31,17 @@ class Main:
 
         self.interface.show_map(self.map.grid)
 
-        
+        player_input = self.interface.get_player_input()
+        while not player_input:
+            player_input = self.interface.get_player_input()
+
         self.snake.move_snake(player_input)
 
 main = Main()
 run = True
-c = 0
+turn = 0
 while run:
-    c += 1
+    turn += 1
     main.loop()
-    if c == 10:
+    if turn == 10:
         run = False

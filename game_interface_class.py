@@ -1,6 +1,6 @@
-import sys
 class GameInterface:
-
+    def __init__(self):
+        self.direction = ""
     def show_map(self, grid):
         print()
         print()
@@ -12,7 +12,6 @@ class GameInterface:
             print(line_drawing)
 
     def get_player_input(self):
-        direction_choosen = ""
         print("Select one of the following directions:")
         player_input = input("[Up | Down | Right | Left]: ")
         player_input = player_input.lower()
@@ -21,12 +20,16 @@ class GameInterface:
         for d in directions:
             match_score = len(set(d).intersection(set(player_input)))
             if match_score > 1:
-                direction_choosen = d
-                print(f"Direction choosen: {direction_choosen} with {match_score} points")
-                return direction_choosen
-        if direction_choosen == "":
-            print("wtf did you type? That's not a direction.")
-            sys.exit
+                self.direction = d
+                print(f"Direction choosen: {self.direction} with {match_score} points")
+                return self.direction
+        if self.direction == "":
+            print("Not a valid direction.")
+            return False
 
 ifc = GameInterface()
 ifc.get_player_input()
+
+player_input = ifc.get_player_input()
+while not player_input:
+    player_input = ifc.get_player_input()
