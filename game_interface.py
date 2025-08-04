@@ -2,10 +2,7 @@ class GameInterface:
     def __init__(self):
         self.direction = ""
     def show_map(self, grid):
-        print()
-        print()
-        print()
-        print("Showing MAP")
+
         for line in grid:
             line_drawing = ""
             for block in line:

@@ -11,12 +11,11 @@ class Map:
         self.snake_head_char = "0"
         self.snake_body_char = "°"
 
-        self.grid = [[self.empty_block_char for x in range(self.map_width)] for y in range(self.map_height)]
-
     def test(self):
         test_y = 1
         test_x = 9
         self.grid[test_y][test_x] = "T"
+
 
     def get_empty_blocks(self):
         row_index = 0
@@ -50,19 +49,23 @@ class Map:
                 print(f"ERROR: entity '{entity_type}' is unkown.")
                 exit
 
-    def clear_map(self, snake_position, fruit_position):
-        positions_in_use = []
-        for p in snake_position:
-            positions_in_use.append(p)
-            print(f"snake coordenates: {p}")
-        positions_in_use.append(fruit_position)
-        row_index = 0
-        column_index = 0
-        for row in self.grid:
-            for column in row:
-                current_coordenates = [row, column]
-                if current_coordenates in positions_in_use:
-                    self.grid[row][column] = self.empty_block_char
+    # def clear_map(self, snake_position, fruit_position):
+    #     positions_in_use = []
+    #     for p in snake_position:
+    #         positions_in_use.append(p)
+    #         print(f"snake coordenates: {p}")
+    #     positions_in_use.append(fruit_position)
+    #     row_index = 0
+    #     column_index = 0
+    #     for row in self.grid:
+    #         for column in row:
+    #             current_coordenates = [row, column]
+    #             if current_coordenates in positions_in_use:
+    #                 self.grid[row][column] = self.empty_block_char
+
+    def reset_map(self):
+        self.grid = [[self.empty_block_char for x in range(self.map_width)] for y in range(self.map_height)]
+
         
 
 # i = GameInterface()
