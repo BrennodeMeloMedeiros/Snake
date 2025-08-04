@@ -5,6 +5,7 @@ class GameInterface:
         print()
         print()
         print()
+        print("Showing MAP")
         for line in grid:
             line_drawing = ""
             for block in line:
@@ -27,9 +28,9 @@ class GameInterface:
             print("Not a valid direction.")
             return False
 
-ifc = GameInterface()
-ifc.get_player_input()
+# ifc = GameInterface()
+# ifc.get_player_input()
 
-player_input = ifc.get_player_input()
-while not player_input:
-    player_input = ifc.get_player_input()
+# player_input = ifc.get_player_input()
+# while not player_input:
+#     player_input = ifc.get_player_input()

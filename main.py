@@ -1,7 +1,7 @@
-from game_interface_class import GameInterface
-from map_class import Map
-from snake_class import Snake
-from fruit_class import Fruit
+from game_interface import GameInterface
+from map import Map
+from snake import Snake
+from fruit import Fruit
 import random
 class Main:
     def __init__(self):

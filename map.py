@@ -1,4 +1,4 @@
-from game_interface_class import GameInterface
+from game_interface import GameInterface
 class Map:
 
     def __init__(self):
