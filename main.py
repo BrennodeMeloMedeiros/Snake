@@ -46,5 +46,5 @@ turn = 0
 while run:
     turn += 1
     main.loop()
-    if turn == 10:
-        run = False
+    # if turn == 10:
+    #     run = False

@@ -13,9 +13,9 @@ class Snake(Entity):
             if body_part_position == self.position[0]:
                 match direction:
                     case "up":
-                        body_part_position[0] += 1
-                    case "down":
                         body_part_position[0] -= 1
+                    case "down":
+                        body_part_position[0] += 1
                     case "right":
                         body_part_position[1] += 1
                     case "left":
