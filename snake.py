@@ -7,21 +7,34 @@ class Snake(Entity):
         self.position = new_position
 
     def move_snake(self, direction):
+        #create moviment limitations
         new_snake_position = []
         for body_part_position in self.position:
             # move head
             if body_part_position == self.position[0]:
-                match direction:
-                    case "up":
-                        body_part_position[0] -= 1
-                    case "down":
-                        body_part_position[0] += 1
-                    case "right":
-                        body_part_position[1] += 1
-                    case "left":
-                        body_part_position[1] -= 1
-                    case _:
-                        print("Input key incorrect")
+                # match direction:
+                #     case "up":
+                #         body_part_position[0] -= 1
+                #     case "down":
+                #         body_part_position[0] += 1
+                #     case "right":
+                #         body_part_position[1] += 1
+                #     case "left":
+                #         body_part_position[1] -= 1
+                #     case _:
+                #         print("Input key incorrect")
+                
+                if direction == "up":
+                    body_part_position[0] -= 1
+                elif direction == "down":
+                    body_part_position[0] += 1
+                elif direction == "right":
+                    body_part_position[1] += 1
+                elif direction == "left":
+                    body_part_position[1] -= 1
+                else:
+                    print("Input key incorrect")
+
             # move body 
             else:
                 body_part_position = old_body_part_position
